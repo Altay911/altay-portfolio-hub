@@ -1,0 +1,28 @@
+name: Deploy Portfolio Hub to AWS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: SSH and Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ubuntu
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: |
+            if [ ! -d "~/altay-portfolio" ]; then
+              git clone https://github.com/${{ github.repository }} ~/altay-portfolio
+            fi
+            cd ~/altay-portfolio
+            git pull origin main
+            touch .env
+            sudo docker-compose down
+            sudo docker-compose up --build -d
