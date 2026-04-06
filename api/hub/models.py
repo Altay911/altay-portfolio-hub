@@ -2,7 +2,7 @@ from django.db import models
 
 class Link(models.Model):
     CATEGORY_CHOICES = [
-        ('1_project', 'AI Projects'),
+        ('1_project', 'Featured Projects'),
         ('2_cert', 'Certificates'),
         ('3_social', 'Social Connect'),
     ]
