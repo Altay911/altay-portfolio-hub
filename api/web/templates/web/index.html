@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Altay | AI Engineer Portfolio</title>
+    <title>Altay | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body { 
             background-color: #f8fafc; /* Very soft off-white */
             color: #0f172a; /* Deep slate for readability */
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            scroll-behavior: smooth;
         }
         .glass-nav { 
             background: rgba(248, 250, 252, 0.8); 
             backdrop-filter: blur(12px); 
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         .glass-card { 
             background: #ffffff; 
@@ -43,8 +46,8 @@
             <div class="text-2xl font-black italic tracking-tighter text-blue-600">A.</div>
             <div class="hidden md:flex gap-10 text-sm font-semibold text-slate-500">
                 <a href="#" class="hover:text-blue-600 transition-colors">Home</a>
-                <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
-                <a href="#certs" class="hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#featured-projects" class="hover:text-blue-600 transition-colors">Projects</a>
+                <a href="#certificates" class="tracking-wide hover:text-blue-600 transition-colors">Certificates</a>
             </div>
             <a href="mailto:altaybaghirov@icloud.com" class="bg-slate-900 hover:bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-slate-200">
                 Contact
@@ -72,7 +75,7 @@
         
         {% regroup items by get_category_display as category_list %}
         {% for category in category_list %}
-            <div id="{{ category.grouper|lower }}" class="space-y-8">
+            <div id="{{ category.grouper|slugify }}" class="space-y-8 scroll-mt-32">
                 <div class="flex items-center gap-6">
                     <h2 class="text-xs font-black text-slate-400 uppercase tracking-[0.4em] whitespace-nowrap">{{ category.grouper }}</h2>
                     <div class="h-[1px] w-full bg-slate-200"></div>
