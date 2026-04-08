@@ -28,6 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['altaybaghirov.com', 'www.altaybaghirov.com', '3.239.98.192', 'localhost', '127.0.0.1']
 
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://altaybaghirov.com',
+    'https://www.altaybaghirov.com'
+]
+
 # Application definition
 
 INSTALLED_APPS = [
