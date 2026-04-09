@@ -12,6 +12,9 @@
     <meta name="keywords"
         content="Altay Baghirov, AI Engineer, Software Developer, Python, Django, AWS, DevOps, DocuMind, AI Router">
     <meta name="author" content="Altay Baghirov">
+    
+    <!-- Dynamic SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='80' height='80' rx='10' fill='none' stroke='%2364ffda' stroke-width='8'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='bold' font-size='50' fill='%2364ffda' text-anchor='middle'%3EA.%3C/text%3E%3C/svg%3E">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Altay Baghirov - AI Portfolio">
@@ -336,13 +339,15 @@
                     <p>Fast-forward to today, and I’ve had the privilege of building production-grade AI tools and SaaS
                         platforms deployed on robust cloud infrastructure.</p>
                     <p>Here are a few technologies I've been working with recently:</p>
-                    <ul class="grid grid-cols-2 gap-2 mono text-sm text-[#64ffda]">
-                        <li>▹ Python (Django)</li>
-                        <li>▹ AWS (EC2/Nginx)</li>
+                    <ul class="grid grid-cols-2 gap-2 mono text-sm text-[#64ffda] mt-4">
+                        <li>▹ Python (Django/FastAPI)</li>
+                        <li>▹ AWS (EC2/S3/Nginx)</li>
                         <li>▹ LangChain / FAISS</li>
+                        <li>▹ Pinecone / Vector DBs</li>
                         <li>▹ Docker / CI/CD</li>
-                        <li>▹ JavaScript</li>
-                        <li>▹ SQL</li>
+                        <li>▹ React / JavaScript</li>
+                        <li>▹ PostgreSQL</li>
+                        <li>▹ PyTorch / MLflow</li>
                     </ul>
                 </div>
                 <!-- Profile Image with Teal Overlay -->
@@ -466,15 +471,8 @@
                                 </p>
                             </div>
 
-                            <ul
-                                class="flex flex-wrap {% if forloop.counter|divisibleby:2 %}justify-start{% else %}md:justify-end justify-start{% endif %} gap-x-5 gap-y-2 mt-6 mono text-[13px] text-[#a8b2d1]">
-                                <li>Docker</li>
-                                <li>Python</li>
-                                <li>PostgreSQL</li>
-                            </ul>
-
                             <div
-                                class="flex {% if forloop.counter|divisibleby:2 %}justify-start{% else %}md:justify-end justify-start{% endif %} gap-4 mt-6 text-[#ccd6f6]">
+                                class="flex {% if forloop.counter|divisibleby:2 %}justify-start{% else %}md:justify-end justify-start{% endif %} gap-4 mt-5 text-[#ccd6f6]">
                                 <a href="{{ item.url }}" target="_blank" class="hover:text-[#64ffda] transition-all">
                                     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
