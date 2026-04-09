@@ -12,7 +12,6 @@ class Link(models.Model):
     url = models.URLField()
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='1_project')
     icon_name = models.CharField(max_length=50, default='link', help_text="Lucide icon name (e.g., cpu, award, github)")
-    image = models.ImageField(upload_to='previews/', blank=True, null=True, help_text="Upload local photo/certificate (Overrides URL)")
     image_url = models.CharField(max_length=500, blank=True, null=True, help_text="URL or static path to banner image")
     order = models.IntegerField(default=0)
 
