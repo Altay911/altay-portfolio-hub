@@ -1,3 +1,5 @@
+Pillow
 django
 gunicorn
 python-dotenv
+Pillow
