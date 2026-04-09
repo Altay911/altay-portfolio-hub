@@ -12,9 +12,10 @@
     <meta name="keywords"
         content="Altay Baghirov, AI Engineer, Software Developer, Python, Django, AWS, DevOps, DocuMind, AI Router">
     <meta name="author" content="Altay Baghirov">
-    
+
     <!-- Dynamic SVG Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='80' height='80' rx='10' fill='none' stroke='%2364ffda' stroke-width='8'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='bold' font-size='50' fill='%2364ffda' text-anchor='middle'%3EA.%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='80' height='80' rx='10' fill='none' stroke='%2364ffda' stroke-width='8'/%3E%3Ctext x='50' y='65' font-family='sans-serif' font-weight='bold' font-size='50' fill='%2364ffda' text-anchor='middle'%3EA.%3C/text%3E%3C/svg%3E">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Altay Baghirov - AI Portfolio">
@@ -153,6 +154,7 @@
         .tab-btn {
             border-bottom: 2px solid transparent;
         }
+
         @media (min-width: 768px) {
             .tab-btn {
                 border-bottom: none;
@@ -160,11 +162,13 @@
                 margin-left: -1px;
             }
         }
+
         .tab-btn.active {
             color: var(--green);
             background-color: var(--light-navy);
             border-bottom: 2px solid var(--green);
         }
+
         @media (min-width: 768px) {
             .tab-btn.active {
                 border-bottom: none;
@@ -281,9 +285,10 @@
                 </ol>
                 <a href="mailto:altaybaghirov@icloud.com"
                     class="hidden md:inline-block mono text-[13px] border border-[#64ffda] text-[#64ffda] px-4 py-2 rounded hover:bg-[#64ffda]/10 transition-all">Resume</a>
-                
+
                 <!-- Hamburger Button -->
-                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden flex flex-col justify-center gap-[6px] w-[30px] h-[24px] cursor-pointer">
+                <button id="mobile-menu-btn" aria-label="Toggle Menu"
+                    class="md:hidden flex flex-col justify-center gap-[6px] w-[30px] h-[24px] cursor-pointer">
                     <span class="block h-[2px] w-full bg-[#64ffda] transition-all duration-300 origin-right"></span>
                     <span class="block h-[2px] w-full bg-[#64ffda] transition-all duration-300"></span>
                     <span class="block h-[2px] w-full bg-[#64ffda] transition-all duration-300 origin-right"></span>
@@ -292,14 +297,25 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <aside id="mobile-menu" class="fixed inset-0 w-full h-screen bg-[#112240] z-[105] flex flex-col items-center justify-center translate-x-full transition-transform duration-300 md:hidden">
+        <aside id="mobile-menu"
+            class="fixed inset-0 w-full h-screen bg-[#112240] z-[105] flex flex-col items-center justify-center translate-x-full transition-transform duration-300 md:hidden">
             <ol class="flex flex-col items-center gap-8 mono text-lg text-[#e6f1ff] w-full text-center">
-                <li class="w-full animate-fade-up" style="animation-delay: 0.1s;"><a href="#about" class="block w-full hover:text-[#64ffda] mobile-link"><span class="block text-[#64ffda] text-sm mb-2">01.</span> About</a></li>
-                <li class="w-full animate-fade-up" style="animation-delay: 0.2s;"><a href="#experience" class="block w-full hover:text-[#64ffda] mobile-link"><span class="block text-[#64ffda] text-sm mb-2">02.</span> Experience</a></li>
-                <li class="w-full animate-fade-up" style="animation-delay: 0.3s;"><a href="#featured-projects" class="block w-full hover:text-[#64ffda] mobile-link"><span class="block text-[#64ffda] text-sm mb-2">03.</span> Work</a></li>
-                <li class="w-full animate-fade-up" style="animation-delay: 0.4s;"><a href="#contact" class="block w-full hover:text-[#64ffda] mobile-link"><span class="block text-[#64ffda] text-sm mb-2">04.</span> Contact</a></li>
+                <li class="w-full animate-fade-up" style="animation-delay: 0.1s;"><a href="#about"
+                        class="block w-full hover:text-[#64ffda] mobile-link"><span
+                            class="block text-[#64ffda] text-sm mb-2">01.</span> About</a></li>
+                <li class="w-full animate-fade-up" style="animation-delay: 0.2s;"><a href="#experience"
+                        class="block w-full hover:text-[#64ffda] mobile-link"><span
+                            class="block text-[#64ffda] text-sm mb-2">02.</span> Experience</a></li>
+                <li class="w-full animate-fade-up" style="animation-delay: 0.3s;"><a href="#featured-projects"
+                        class="block w-full hover:text-[#64ffda] mobile-link"><span
+                            class="block text-[#64ffda] text-sm mb-2">03.</span> Work</a></li>
+                <li class="w-full animate-fade-up" style="animation-delay: 0.4s;"><a href="#contact"
+                        class="block w-full hover:text-[#64ffda] mobile-link"><span
+                            class="block text-[#64ffda] text-sm mb-2">04.</span> Contact</a></li>
             </ol>
-            <a href="mailto:altaybaghirov@icloud.com" class="animate-fade-up mono text-lg border border-[#64ffda] text-[#64ffda] px-12 py-4 rounded hover:bg-[#64ffda]/10 transition-all mt-12" style="animation-delay: 0.5s;">Resume</a>
+            <a href="mailto:altaybaghirov@icloud.com"
+                class="animate-fade-up mono text-lg border border-[#64ffda] text-[#64ffda] px-12 py-4 rounded hover:bg-[#64ffda]/10 transition-all mt-12"
+                style="animation-delay: 0.5s;">Resume</a>
         </aside>
     </nav>
 
@@ -375,7 +391,8 @@
 
             <div class="flex flex-col md:flex-row gap-4 max-w-3xl">
                 <!-- Tab Buttons -->
-                <div class="flex md:flex-col overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-l border-[#233554] relative">
+                <div
+                    class="flex md:flex-col overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-l border-[#233554] relative">
                     <button onclick="switchTab(event, 'comp-1')"
                         class="tab-btn active px-5 py-3 text-left mono text-xs whitespace-nowrap hover:bg-[#112240] hover:text-[#64ffda] transition-all">Engineering
                         Firm</button>
@@ -523,7 +540,6 @@
             class="p-2 hover:text-[#64ffda] transition-colors text-xs sm:text-[13px]">
             <div>Designed & Built by Altay Baghirov</div>
         </a>
-        <p class="text-[11px] mt-1">© 2026 • AI Ecosystem on AWS</p>
     </footer>
 
     <script>
