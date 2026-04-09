@@ -146,6 +146,28 @@
             opacity: 0;
             animation: fade-in-up 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
         }
+
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+        }
+        @media (min-width: 768px) {
+            .tab-btn {
+                border-bottom: none;
+                border-left: 2px solid transparent;
+                margin-left: -1px;
+            }
+        }
+        .tab-btn.active {
+            color: var(--green);
+            background-color: var(--light-navy);
+            border-bottom: 2px solid var(--green);
+        }
+        @media (min-width: 768px) {
+            .tab-btn.active {
+                border-bottom: none;
+                border-left: 2px solid var(--green);
+            }
+        }
     </style>
 </head>
 
@@ -239,7 +261,7 @@
 
     <!-- 3. NAVIGATION -->
     <nav id="navbar" class="animate-nav fixed top-0 w-full z-[100] h-24 flex items-center transition-all duration-300">
-        <div class="w-full px-6 md:px-12 flex justify-between items-center">
+        <div class="w-full px-6 md:px-12 flex justify-between items-center relative z-[110]">
             <div
                 class="w-10 h-10 border-2 border-[#64ffda] rounded flex items-center justify-center text-[#64ffda] font-bold">
                 A.</div>
@@ -255,9 +277,27 @@
                                 class="text-[#64ffda]">04.</span> Contact</a></li>
                 </ol>
                 <a href="mailto:altaybaghirov@icloud.com"
-                    class="mono text-[13px] border border-[#64ffda] text-[#64ffda] px-4 py-2 rounded hover:bg-[#64ffda]/10 transition-all">Resume</a>
+                    class="hidden md:inline-block mono text-[13px] border border-[#64ffda] text-[#64ffda] px-4 py-2 rounded hover:bg-[#64ffda]/10 transition-all">Resume</a>
+                
+                <!-- Hamburger Button -->
+                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden flex flex-col justify-center gap-[6px] w-[30px] h-[24px] cursor-pointer">
+                    <span class="block h-[2px] w-full bg-[#64ffda] transition-all duration-300 origin-right"></span>
+                    <span class="block h-[2px] w-full bg-[#64ffda] transition-all duration-300"></span>
+                    <span class="block h-[2px] w-full bg-[#64ffda] transition-all duration-300 origin-right"></span>
+                </button>
             </div>
         </div>
+
+        <!-- Mobile Menu Overlay -->
+        <aside id="mobile-menu" class="fixed inset-0 w-full h-screen bg-[#112240] z-[105] flex flex-col items-center justify-center translate-x-full transition-transform duration-300 md:hidden">
+            <ol class="flex flex-col items-center gap-8 mono text-lg text-[#e6f1ff] w-full text-center">
+                <li class="w-full animate-fade-up" style="animation-delay: 0.1s;"><a href="#about" class="block w-full hover:text-[#64ffda] mobile-link"><span class="block text-[#64ffda] text-sm mb-2">01.</span> About</a></li>
+                <li class="w-full animate-fade-up" style="animation-delay: 0.2s;"><a href="#experience" class="block w-full hover:text-[#64ffda] mobile-link"><span class="block text-[#64ffda] text-sm mb-2">02.</span> Experience</a></li>
+                <li class="w-full animate-fade-up" style="animation-delay: 0.3s;"><a href="#featured-projects" class="block w-full hover:text-[#64ffda] mobile-link"><span class="block text-[#64ffda] text-sm mb-2">03.</span> Work</a></li>
+                <li class="w-full animate-fade-up" style="animation-delay: 0.4s;"><a href="#contact" class="block w-full hover:text-[#64ffda] mobile-link"><span class="block text-[#64ffda] text-sm mb-2">04.</span> Contact</a></li>
+            </ol>
+            <a href="mailto:altaybaghirov@icloud.com" class="animate-fade-up mono text-lg border border-[#64ffda] text-[#64ffda] px-12 py-4 rounded hover:bg-[#64ffda]/10 transition-all mt-12" style="animation-delay: 0.5s;">Resume</a>
+        </aside>
     </nav>
 
     <main class="mx-auto w-full max-w-[1600px] px-6 md:px-[100px] lg:px-[150px]">
@@ -330,7 +370,7 @@
 
             <div class="flex flex-col md:flex-row gap-4 max-w-3xl">
                 <!-- Tab Buttons -->
-                <div class="flex md:flex-col overflow-x-auto md:overflow-x-visible border-l border-[#233554]">
+                <div class="flex md:flex-col overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-l border-[#233554] relative">
                     <button onclick="switchTab(event, 'comp-1')"
                         class="tab-btn active px-5 py-3 text-left mono text-xs whitespace-nowrap hover:bg-[#112240] hover:text-[#64ffda] transition-all">Engineering
                         Firm</button>
@@ -450,9 +490,9 @@
 
                         <!-- Image -->
                         <div
-                            class="relative h-full w-full col-span-1 md:col-span-7 row-start-1 {% if forloop.counter|divisibleby:2 %}md:col-start-6{% else %}md:col-start-1{% endif %} opacity-[0.15] md:opacity-100 z-0 md:rounded">
+                            class="relative h-full w-full col-span-1 md:col-span-7 row-start-1 {% if forloop.counter|divisibleby:2 %}md:col-start-6{% else %}md:col-start-1{% endif %} opacity-[0.25] md:opacity-100 z-0 md:rounded">
                             <a href="{{ item.url }}" target="_blank"
-                                class="block w-full h-[350px] relative bg-[#64ffda] md:rounded overflow-hidden group md:shadow-2xl">
+                                class="block w-full h-full min-h-[350px] md:h-[350px] relative bg-[#64ffda] rounded md:border-0 overflow-hidden group shadow-2xl">
                                 <img src="https://raw.githubusercontent.com/Altay911/altay-portfolio-hub/main/api/web/static/web/images/cert_{{ forloop.counter }}.png?v={% now 'U' %}"
                                     onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800';"
                                     alt="{{ item.title }}"
@@ -491,6 +531,32 @@
     <script>
         lucide.createIcons();
 
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let menuOpen = false;
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+                menuBtn.children[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                menuBtn.children[1].style.opacity = '0';
+                menuBtn.children[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+                menuBtn.children[0].style.transform = 'none';
+                menuBtn.children[1].style.opacity = '1';
+                menuBtn.children[2].style.transform = 'none';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
         // Navbar Scroll Logic
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
@@ -503,7 +569,6 @@
             document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(b => {
                 b.classList.remove('active');
-                b.style.borderLeft = '1px solid #233554';
             });
             document.getElementById(tabId).classList.remove('hidden');
             e.currentTarget.classList.add('active');
