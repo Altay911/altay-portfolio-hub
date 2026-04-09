@@ -71,8 +71,21 @@
             left: 0;
             right: 0;
             height: 68px;
-            z-index: 100;
+            z-index: 110;
             transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        #navbar.menu-open {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            border-bottom-color: transparent !important;
+        }
+
+        #navbar.menu-open .nav-inner a:not(#mobile-menu-btn),
+        #navbar.menu-open .nav-inner .resume-btn {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
         }
 
         .nav-inner {
@@ -391,10 +404,10 @@
 
                 <!-- Hamburger — mobile only -->
                 <button id="mobile-menu-btn" aria-label="Toggle Menu"
-                    class="lg:hidden flex flex-col justify-center gap-[5px] w-7 h-6 cursor-pointer">
-                    <span class="block h-[1.5px] w-full bg-black transition-all duration-300 origin-right"></span>
-                    <span class="block h-[1.5px] w-full bg-black transition-all duration-300"></span>
-                    <span class="block h-[1.5px] w-full bg-black transition-all duration-300 origin-right"></span>
+                    class="lg:hidden flex flex-col justify-center gap-[5px] w-7 h-6 cursor-pointer relative z-[120]">
+                    <span class="block h-[1.5px] w-full bg-black transition-all duration-300 origin-center"></span>
+                    <span class="block h-[1.5px] w-full bg-black transition-all duration-300 origin-center"></span>
+                    <span class="block h-[1.5px] w-full bg-black transition-all duration-300 origin-center"></span>
                 </button>
             </div>
         </div>
@@ -478,7 +491,7 @@
                 <div class="relative group max-w-[280px] mx-auto md:mx-0">
                     <div class="relative rounded overflow-hidden border border-black/20 group-hover:translate-x-2 group-hover:translate-y-2 transition-all duration-300"
                         style="box-shadow: 6px 6px 0px var(--olive)">
-                        <img src="https://drive.google.com/file/d/1Pyzpuy0pT5Hk6IhHmP0yxVwvCNfRSAsa/view?usp=share_link"
+                        <img src="https://drive.google.com/uc?export=view&id=1Pyzpuy0pT5Hk6IhHmP0yxVwvCNfRSAsa"
                             alt="Altay" class="grayscale hover:grayscale-0 transition-all duration-700 w-full block">
                     </div>
                 </div>
@@ -711,12 +724,13 @@
         function toggleMenu() {
             menuOpen = !menuOpen;
             mobileMenu.classList.toggle('translate-x-full', !menuOpen);
+            document.getElementById('navbar').classList.toggle('menu-open', menuOpen);
             document.body.style.overflow = menuOpen ? 'hidden' : '';
             const [a, b, c] = menuBtn.children;
             if (menuOpen) {
-                a.style.transform = 'rotate(-45deg) translate(-4px, 5px)';
+                a.style.transform = 'translateY(6.5px) rotate(-45deg)';
                 b.style.opacity = '0';
-                c.style.transform = 'rotate(45deg) translate(-4px, -5px)';
+                c.style.transform = 'translateY(-6.5px) rotate(45deg)';
             } else {
                 a.style.transform = b.style.transform = c.style.transform = '';
                 b.style.opacity = '1';
