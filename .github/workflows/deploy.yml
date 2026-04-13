@@ -29,6 +29,9 @@ jobs:
             fi
             
             cd "$DEPLOY_DIR"
-            touch .env
+            echo "SECRET_KEY='${{ secrets.SECRET_KEY }}'" > .env
+            echo "ALLOWED_HOSTS='${{ secrets.ALLOWED_HOSTS }}'" >> .env
+            echo "DEBUG=False" >> .env
+            
             sudo docker-compose down
             sudo docker-compose up --build -d

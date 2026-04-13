@@ -14,4 +14,5 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --verbose -r requirements.txt
 
 COPY . .
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--chdir", "api", "config.wsgi:application"]
+# Collect static files and start gunicorn
+CMD ["sh", "-c", "python api/manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 --chdir api config.wsgi:application"]
