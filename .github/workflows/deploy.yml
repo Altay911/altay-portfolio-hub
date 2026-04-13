@@ -18,11 +18,17 @@ jobs:
           username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
-            if [ ! -d "~/altay-portfolio" ]; then
-              git clone https://github.com/${{ github.repository }} ~/altay-portfolio
+            DEPLOY_DIR="$HOME/altay-portfolio"
+            
+            if [ ! -d "$DEPLOY_DIR" ]; then
+              git clone https://github.com/${{ github.repository }} "$DEPLOY_DIR"
+            else
+              cd "$DEPLOY_DIR"
+              git fetch origin main
+              git reset --hard origin/main
             fi
-            cd ~/altay-portfolio
-            git pull origin main
+            
+            cd "$DEPLOY_DIR"
             touch .env
             sudo docker-compose down
             sudo docker-compose up --build -d
