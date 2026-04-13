@@ -10,3 +10,7 @@ def home_view(request):
         'items': items
     }
     return render(request, 'web/index.html', context)
+
+
+def resume_view(request):
+    return render(request, 'web/resume.html')
