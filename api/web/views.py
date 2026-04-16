@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from hub.models import Link 
 
 def home_view(request):
@@ -13,4 +13,4 @@ def home_view(request):
 
 
 def resume_view(request):
-    return render(request, 'web/resume.html')
+    return redirect('https://drive.google.com/file/d/1aDwx5j2SdcXPc4hGHjeZ9AFE79LZMyN7/view?usp=sharing')
