@@ -13,4 +13,4 @@ def home_view(request):
 
 
 def resume_view(request):
-    return redirect('https://drive.google.com/file/d/1aDwx5j2SdcXPc4hGHjeZ9AFE79LZMyN7/view?usp=sharing')
+    return redirect('https://drive.google.com/file/d/1aDwx5j2SdcXPc4hGHjeZ9AFE79LZMyN7/preview')
